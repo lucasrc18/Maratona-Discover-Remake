@@ -15,7 +15,7 @@
 
 html {
     overflow-y: unset;
-    font-size: 93.75%; /* 15 px */
+    font-size: 93.75%;
 }
 
 /* Hide scrollbar */
@@ -129,7 +129,6 @@ a:hover {
     opacity: 1;
 }
 
-
 /* Header */
 
 header {
@@ -166,11 +165,11 @@ select {
     outline: transparent none 0px;
     border: 0px none transparent;
 
-    -webkit-appearance: none; /* Remove estilo padrão do Chrome */
-    -moz-appearance: none; /* Remove estilo padrão do FireFox */
-    appearance: none; /* Remove estilo padrão do FireFox*/
-    background: transparent no-repeat #eeeeee;  /* Imagem de fundo (Seta) */
-    background-position: 218px center;  /*Posição da imagem do background*/  
+    -webkit-appearance: none; /* Remove default Chrome style */
+    -moz-appearance: none; /* Remove default FireFox style */
+    appearance: none; /* Remove default FireFox style*/
+    background: transparent no-repeat #eeeeee;  /* remove background image (arrow) */
+    background-position: 218px center;
     border:1px solid #ddd;
 
     width: 40px;
@@ -358,10 +357,6 @@ td img:first-child {
     color: #49AA26;
 }
 
-#history table tr {
-    width: fit-content;
-}
-
 /* Form */
 
 #form, #editForm {
@@ -419,9 +414,3 @@ footer {
         gap: 2rem;
     }
 }
-
-/*
-
-padding: repeat(8px, 4); = padding: 8px 8px 8px 8px;
-
-*/
