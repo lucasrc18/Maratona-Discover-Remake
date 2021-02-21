@@ -17,18 +17,18 @@ const tValues = {
 
 // Modal:
 const modal = {
-    open() {
+    open() { // Add transaction modal
         document.querySelector("#modal").
             classList.add("active");
     },
-    close() {
+    close() { // Add transaction modal
         document.
             querySelector("#modal").
             classList.remove("active");
 
         form.clear();
     },
-    alert(value){
+    alert(value){ // Alert remove all modal
         if(value == 0){
             document.
                 querySelector("#alert").
@@ -39,7 +39,7 @@ const modal = {
                 classList.add("active");
         }
     },
-    edit(value){
+    edit(value){ // Edit transaction modal
         if (value == 0) {
             document.
                 querySelector("#edit").
@@ -50,7 +50,7 @@ const modal = {
                 classList.add("active");
         }
     },
-    openEdit(len){
+    openEdit(len){ // Fill and open Edit transaction modal
         let edit = document.querySelectorAll("tr")[len].getElementsByTagName("td");
         let input = document.querySelectorAll("#edit form input");
 
@@ -101,7 +101,7 @@ const data = {
 
 // Application
 const app = {
-    // update values display (incomes, expenses, total)
+    // update values display (incomes, expenses, total) and currency format
     reload(incomes = 0, expenses = 0){
         let amount = document.querySelectorAll(".amountTb");
 
@@ -141,7 +141,7 @@ const app = {
         }
     },
 
-    reloadDate(){
+    reloadDate(){ // Reload date display when currency format changes
         let date = document.querySelectorAll(".dateTb");
 
         for (let i = 0; i < date.length; i++) {
@@ -150,6 +150,7 @@ const app = {
     },
 
     // start app
+    // and loads previously saved transactions
     init(){
         theme(true);
 
@@ -175,6 +176,7 @@ const form = {
             input[1].value.length == 0 ||
             input[2].value.length == 0) {
             throw new Error("Os campos não podem estar em branco");
+            alert("Os campos não podem estar em branco");
         }
         else {
             transactions.addTable(
@@ -183,7 +185,7 @@ const form = {
                 input[2].value);
         }
     },
-    clear(){
+    clear(){ // erase inputs previously filled 
         let input = document.querySelectorAll("form input");
         for (let i = 0; i < input.length; i++) {
             input[i].value = "";
@@ -194,9 +196,9 @@ const form = {
 // Table:
 let allTransactions = [];
 const transactions = {
-    addTable(tDesc, tAmount, tDate) {
+    addTable(tDesc, tAmount, tDate) { // add transaction
         modal.close();
-
+   
         let len = table.rows.length;
         const removeTable = `<img src="assets/minus.svg" onclick="transactions.remTable(this, ${len})" title="Remover transação">`;
         const editTable = `<img src="assets/edit.svg" onclick="modal.openEdit(${len})" title="Editar transação">`;
@@ -247,7 +249,7 @@ const transactions = {
 
         data.setTransactions(allTransactions);
     },
-    remTable(row, len) {
+    remTable(row, len) { // remove transaction
         // delete row
         let i = row.parentNode.parentNode.rowIndex;
         allTransactions.splice(
@@ -274,7 +276,7 @@ const transactions = {
 
         location.reload();
     },
-    editTable(len){
+    editTable(len){ // edit transaction
         let edit = document.querySelectorAll("tr")[len].getElementsByTagName("td");
         let input = document.querySelectorAll("#edit form input");
 
@@ -335,11 +337,8 @@ const formatting = {
     }
 }
 
-// Dark theme:
+// Themes:
 function theme(isStarting = false) { // change themes (between light - dark mode)
-    // isStarting is false by default, so everytime that this function is called
-    // without the true as parameter, it is going to just change the theme,
-    // with that parameter, it will load the last theme used on this application
     if(isStarting){
         currentTheme = data.theme();
     } else {
