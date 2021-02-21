@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="pt-br" id="hideScrollbar">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>dev.finance$</title>
+
+        <link rel="stylesheet" href="styles/index.css">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link
+            href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,400;0,700;1,100;1,400;1,700&display=swap"
+            rel="stylesheet">
+
+        <link rel="shortcut icon" href="assets/favicon.png" type="image/x-icon">
+    </head>
+
+    <body>
+        <header>
+            <span id="currency">
+                <p title="Mudar o formato da moeda, também altera o formato da data e hora">Formato da moeda</p>
+                <select id="countryCurrency" title="Mudar o formato da moeda, também altera o formato da data e hora">
+                    <option value="BRL" id="curBr">
+                        BRL
+                    </option>
+                    <option value="USD" id="curUs">
+                        USD
+                    </option>
+                </select>
+            </span>
+            <img src="assets/logo.svg" alt="Logo dev finance">
+            <a onclick="theme()">
+                <img src="assets/themeBlack.svg" alt="Change theme icon" id="theme">
+            </a>
+        </header>
+
+        <main class="container">
+            <section id="balance">
+                <h2 class="sr-only">Balanço</h2>
+
+                <div class="card">
+                    <h3>
+                        <span>
+                            Entradas
+                        </span>
+                        <img src="./assets/income.svg" alt="Image de entradas">
+                    </h3>
+                    <p id="income" class="amountDisplay">R$ 0,00</p>
+                </div>
+
+                <div class="card">
+                    <h3>
+                        <span>
+                            Saídas
+                        </span>
+                        <img src="./assets/expense.svg" alt="Image de saídas">
+                    </h3>
+                    <p id="expense" class="amountDisplay">-R$ 0,00</p>
+                </div>
+
+                <div class="card total">
+                    <h3>
+                        <span>
+                            Total
+                        </span>
+                        <img src="./assets/total.svg" alt="Image de total">
+                    </h3>
+                    <p id="total" class="amountDisplay">R$ 0,00</p>
+                </div>
+
+            </section>
+
+            <section id="transaction">
+                <h2 class="sr-only">Transações</h2>
+
+                <div id="table-options">
+                    <a onclick="modal.open()" class="button new"> + Nova Transação</a>
+                    <a onclick="modal.alert(1)" class="button">Remover todas as transações</a>
+                </div>
+
+                <table id="data-table">
+                        <tr>
+                            <th>N° da operação</th>
+                            <th>Descrição</th>
+                            <th>Valor</th>
+                            <th>Data</th>
+                            <th>Opções</th>
+                        </tr>
+                </table>
+            </section>
+
+            <div id="tableSpace"></div>
+        </main>
+
+        <div class="modal-overlay" id="modal">
+            <div class="modal">
+                <div id="form">
+                    <h2>Nova Transação</h2>
+                    <form autocomplete="off">
+                        <div class="input-group">
+                            <label class="sr-only" for="description">Descrição</label>
+                            <input type="text" id="description" name="description" placeholder="Descrição" />
+                        </div>
+
+                        <div class="input-group">
+                            <label class="sr-only" for="amount">Valor</label>
+                            <input type="number" step="0.01" id="amount" name="amount"
+                            placeholder="0,00" />
+
+                            <br />
+                            <small class="help">Use a , (vírgula) para casas decimais</small>
+                        </div>
+
+                        <div class="input-group">
+                            <label class="sr-only" for="date">Data</label>
+                            <input type="date" id="date" name="date" />
+                        </div>
+
+                        <div class="input-group actions">
+                            <a onclick="modal.close()" href="#" class="button cancel">Cancelar</a>
+                            <a onclick="form.validate()" class="saveButton">Salvar</a>
+                        </div>
+
+                        <input type="text" style="display: none;
+                        visibility: hidden;" id="expOrInc">
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal-overlay" id="alert">
+            <div class="modal">
+                <h2>Você tem certeza?</h2>
+                <button onclick="transactions.deleteAll()">
+                    Sim, apague todas as
+                    <br/>
+                    transações
+                </button>
+                <button onclick="modal.alert(0)">
+                    Não, cancele e mantenha
+                    <br/>todas as transações
+                </button>
+            </div>
+        </div>
+
+        <div class="modal-overlay" id="edit">
+            <div class="modal">
+                <div id="editForm">
+                    <h2>Edite a transação</h2>
+                    <form autocomplete="off">
+                        <div class="input-group">
+                            <label class="sr-only" for="description">Descrição</label>
+                            <input type="text" name="description" placeholder="Descrição" />
+                        </div>
+        
+                        <div class="input-group">
+                            <label class="sr-only" for="amount">Valor</label>
+                            <input type="number" step="0.01" name="amount" placeholder="0,00" />
+        
+                            <br />
+                            <small class="help">Use a , (vírgula) para casas decimais</small>
+                        </div>
+        
+                        <div class="input-group">
+                            <label class="sr-only" for="date">Data</label>
+                            <input type="date" name="date" />
+                        </div>
+        
+                        <div class="input-group actions">
+                            <a onclick="modal.edit(0)" href="#" class="button cancel">Cancelar</a>
+                            <a class="saveButton" id="saveEdit">Salvar e Alterar</a>
+                        </div>
+        
+                        <input type="text" style="display: none;
+                                visibility: hidden;" id="expOrInc">
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <script src="scripts/main.js"></script>
+
+        <footer>
+            <p id="subtitle">dev.finance$</p>
+        </footer>
+    </body>
+</html>

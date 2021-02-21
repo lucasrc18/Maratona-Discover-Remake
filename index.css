@@ -1,0 +1,427 @@
+/* Global scope */
+
+:root {
+    --dark-blue: #363f5f;
+    --green: #49AA26;
+    --light-green: #3dd785;
+    --red: #e92929;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box
+}
+
+html {
+    overflow-y: unset;
+    font-size: 93.75%; /* 15 px */
+}
+
+/* Hide scrollbar */
+#hideScrollbar::-webkit-scrollbar {
+    /* Chrome, Safari and Opera */
+    display: none;
+}
+
+#hideScrollbar {
+    /* Firefox, IE and Edge */
+    -ms-overflow-style: none;  
+    scrollbar-width: none; 
+    scrollbar-color: transparent;
+}
+
+body {
+    background: #f0f2f5;
+    font-family: 'Poppins', sans-serif;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+.container {
+    width: min(90vw, 800px);
+
+    margin: 50px auto auto auto;
+}
+
+/* Titles */
+
+h2 {
+    margin-top: 3.2rem;
+    margin-bottom: 0.8rem;
+    color: var(--dark-blue);
+}
+
+/* Link and buttons */
+
+a {
+    color: var(--green);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+a:hover {
+    color: var(--light-green);
+}
+
+.saveButton {
+    width: 100%;
+    height: 50px;
+
+    border: none;
+
+    color: white;
+    background: var(--green);
+
+    padding: 0;
+
+    border-radius: 0.25rem;
+
+    cursor: pointer;
+
+    padding-top: 13px;
+    padding-bottom: 13px;
+
+    text-align: center;
+}
+
+.saveButton:hover {
+    background: var(--light-green);
+}
+
+.button.new {
+    margin-bottom: .8rem;
+    display: inline-block;
+}
+
+.button.cancel {
+    color: var(--red);
+    border: 2px var(--red) solid;
+    border-radius: 0.25rem;
+
+    height: 50px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    opacity: 0.6;
+
+    margin-right: 10px;
+
+    padding-left: 2px;
+    padding-right: 2px;
+
+    text-align: center;
+}
+
+.button.cancel {
+    opacity: 1;
+}
+
+
+/* Header */
+
+header {
+    background: #2D4A22;
+    padding: 2rem 0 6rem 3rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+header img {
+    margin-left: -100px;
+}
+
+header a {
+    margin-top: 9px;
+    margin-left: 10px;
+    justify-content: right;
+}
+
+#currency {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0;
+}
+
+#currency select, #currency p {
+    margin: 0;
+    color: #fff;
+}
+
+select {
+    background: transparent;
+    outline: transparent none 0px;
+    border: 0px none transparent;
+
+    -webkit-appearance: none; /* Remove estilo padrão do Chrome */
+    -moz-appearance: none; /* Remove estilo padrão do FireFox */
+    appearance: none; /* Remove estilo padrão do FireFox*/
+    background: transparent no-repeat #eeeeee;  /* Imagem de fundo (Seta) */
+    background-position: 218px center;  /*Posição da imagem do background*/  
+    border:1px solid #ddd;
+
+    width: 40px;
+    height: 25px;
+    
+    text-align: center;
+    align-self: center;
+}
+
+#balance {
+    margin-top: -8rem;
+}
+
+#balance h2 {
+    color: #fff;
+}
+
+/* Cards */
+
+.card {
+    background: #fff;
+    padding: 1.5rem 2rem;
+    margin-bottom: 2rem;
+
+    color: var(--dark-blue);
+}
+
+.card h3 {
+    font-weight: normal;
+    font-size: 1rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.card p {
+    font-size: 2rem;
+    line-height: 3rem;
+
+    margin-top: 1rem;
+}
+
+.card.total {
+    background: var(--green);;
+    color: #fff;
+}
+
+#income, #expense, #total, .amountDisplay {
+    display: inline;
+}
+
+.disabled {
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+#historyBtn {
+    cursor: pointer;
+}
+
+/* Table */
+
+#transaction {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+}
+
+#table-options {
+    display: flex;
+    justify-content: space-between;
+}
+
+#data-table, #historyTable {
+    width: 100%;
+    color: #969cb3;
+    border-spacing: 0 0.5rem;
+    overflow: hidden;
+}
+
+tr td:first-child {
+    border-radius: 0.5rem 0 0 0.5rem;
+}
+
+tr td:last-child {
+    border-radius: 0 0.25rem 0.25rem 0;
+    text-align: center;
+}
+
+table th {
+    background:#fff;
+
+    font-weight: normal;
+    padding: 1rem 2rem;
+
+    color: #969cb3;
+    text-align: left;
+}
+
+#historyTable tr th {
+    text-align: center;
+}
+
+table tr {
+    opacity: 0.7;
+}
+
+table tr:hover {
+    opacity: 1;
+}
+
+table td {
+    background: #fff;
+    padding: 1rem 2rem;
+    color: var(--dark-blue);
+}
+
+#historyTable td {
+    text-align: center;
+}
+
+td img:first-child {
+    height: 30px;
+    width: 30px;
+
+    margin-right: 8px;
+}
+
+#tableSpace {
+    height: 18vh;
+}
+
+.expenses {
+    color: var(--red);
+}
+
+.incomes {
+    color: var(--green);
+}
+
+/* Modal */
+
+.modal-overlay {
+    width: 100%;
+    height: 100%;
+
+    background-color: rgba(0, 0, 0, 0.7);
+
+    position: fixed;
+    top: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    opacity: 0;
+    visibility: hidden;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+    z-index: 2;
+}
+
+.modal {
+    background: #F0F2F5;
+    padding: 2.4rem;
+
+    width: 90%;
+    max-width: 500px;
+}
+
+#alert button {
+    height: 200px;
+    width: 205px;
+    color: #e92929;
+    font-size: 20px;
+}
+
+#alert button:last-child {
+    top: 10px;
+    position: relative;
+    color: #49AA26;
+}
+
+#history table tr {
+    width: fit-content;
+}
+
+/* Form */
+
+#form, #editForm {
+    max-width: 500px;
+}
+
+#form h2, #editForm h2 {
+    margin-top: 0;
+}
+
+#form form input,
+#editForm form input {
+    border: 0px none transparent;
+    border-radius: 0.2rem;
+
+    padding: 0.8rem;
+}
+
+.input-group {
+    margin-top: 0.8rem;
+}
+
+.input-group small {
+    opacity: 0.4;
+}
+
+.input-group.actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Footer */
+
+footer {
+    text-align: center;
+
+    padding: 4rem 0 2rem;
+
+    color: var(--green);
+    opacity: 0.6;
+    z-index: 1;
+}
+
+/* Responsive */
+
+@media(min-width: 800px){
+    html {
+        font-size: 87.5%;
+    }
+
+    #balance {
+        display: grid;
+        grid-template-columns: 200px 1fr 1fr;
+        gap: 2rem;
+    }
+}
+
+/*
+
+padding: repeat(8px, 4); = padding: 8px 8px 8px 8px;
+
+*/
