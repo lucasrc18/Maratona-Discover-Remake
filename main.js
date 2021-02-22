@@ -349,7 +349,7 @@ function theme(isStarting = false) { // change themes (between light - dark mode
     let card = document.querySelectorAll(".card");
     if (currentTheme == 1) {
         document.querySelector("body").style.background = "#14242c";
-        document.querySelector("#theme").src = '../assets/themeWhite.svg';
+        document.querySelector("#theme").src = 'assets/themeWhite.svg';
 
         for (let i = 0; i < 2; i++) {
             card[i].style.background = "#f0f2f5";
@@ -357,7 +357,7 @@ function theme(isStarting = false) { // change themes (between light - dark mode
     }
     else {
         document.querySelector("body").style.background = "#f0f2f5";
-        document.querySelector("#theme").src = '../assets/themeBlack.svg';
+        document.querySelector("#theme").src = 'assets/themeBlack.svg';
 
         for (let i = 0; i < 2; i++) {
             card[i].style.background = "#fff";
