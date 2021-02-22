@@ -16,10 +16,7 @@
 
 > ## Pré-visualização do projeto
 
-<img src="projectPreview1.png"> <br />
-<img src="projectPreview2.png"> <br />
-<img src="projectPreview3.png"> <br />
-<img src="projectPreview4.png"> <br />
+![Preview](https://youtu.be/embed/T1_mPMnmgOg)
 
 > ## Licença
 
