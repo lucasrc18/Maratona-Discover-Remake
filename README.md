@@ -16,7 +16,7 @@
 
 > ## Pré-visualização do projeto
 
-[![Preview](http://img.youtube.com/vi/T1_mPMnmgOg/0.jpg)](http://www.youtube.com/watch?v=T1_mPMnmgOg "Preview")
+![Preview](https://github.com/bigfusca/Maratona-Discover-Remake/blob/main/projectPreview.gif "Preview")
 
 > ## Licença
 
