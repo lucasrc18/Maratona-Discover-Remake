@@ -1,7 +1,7 @@
 # Maratona-Discover-Remake-
 
 #### Recriação do projeto da Maratona Discover 1 desenvolvido pelo Mayk Brito da Rocketseat. 
-#### O código foi totalmente refeito de uma maneira diferente com intuito de demonstrar diferentes formas de se obter o mesmo resultado, e compartilhar como eu faria se o código fosse desenvolvido por mim
+#### O código foi totalmente refeito com intuito de demonstrar diferentes formas de se obter o mesmo resultado, e compartilhar como eu faria se o código fosse desenvolvido por mim
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Inicialmente o projeto consistia em uma aplicação de controle de finanças no qual o usuário pode registrar e remover transações com despesas e lucros, visualizando o valor total de entradas e saidas, e seu valor final. <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Foi então implementado um sistema para possibilitar a alteraração das informações de uma transação como descrição, valor ou data, ou até mesmo remover todas as transações. <br />
