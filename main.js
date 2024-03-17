@@ -1,4 +1,3 @@
-// Global variables:
 let currentTheme = 0; // 0 Light theme // 1 Dark theme
 
 let currency = document.getElementById("countryCurrency");  // Select 
@@ -208,11 +207,9 @@ const transactions = {
 
         // Inserting cells
         let info = new Array(5);
-        info[0] = line.insertCell(0);
-        info[1] = line.insertCell(1);
-        info[2] = line.insertCell(2);
-        info[3] = line.insertCell(3);
-        info[4] = line.insertCell(4);
+        for(let i = 0; i < info.length; i++){
+            info[i] = line.insertCell(i)
+        }
 
         // Filling data
         info[0].innerHTML = len;
